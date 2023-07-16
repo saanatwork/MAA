@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogicLayer.IRepository;
+using MAA.Models.Master;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,17 @@ namespace MAA.Controllers
 {
     public class HomeController : Controller
     {
+        IMasterRepository _iMaster;
+        string pMsg = "";
+        public HomeController(IMasterRepository imaster)
+        {
+            _iMaster = imaster;
+        }
         public ActionResult Index()
         {
-            return View();
+            xyz model = new xyz();
+            model.Banks= _iMaster.GetBankName(ref pMsg);
+            return View(model);
         }
 
         public ActionResult About()

@@ -1,12 +1,25 @@
-﻿@{
+﻿@using MAA.Models.Master;
+@model xyz
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div> Welcome MAA</div>
-<div> Welcome MAA</div>
-<div> Welcome MAA</div>
-<div> Welcome MAA</div>
-<div> Welcome MAA</div>
+<div class="col-md-3">
+    <div style="margin:200px"></div>
+    <select id="cCustomer"
+            onchange="BankClicked()"
+            class="form-select content border-red myctrlw100 is-invalid"
+            aria-label="Default select example">
+        <option selected value="">Select Bank</option>
+        @if (Model.Banks != null && Model.Banks.Count > 0)
+        {
+            foreach (var item in Model.Banks)
+            {
+                <option value="@item.BankID">@item.BankName</option>
+            }
+        }
+    </select>
+</div>
 <div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
@@ -28,3 +41,8 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+@section scripts{
+    <script src="~/UIContent/JS/CustomePage/CommonReusableV2.js"></script>
+    <script src="~/UXContent/IndexJs.js"></script>
+
+}

@@ -4,8 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/UIContent/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/fixedColumns.dataTables.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <link href="~/UIContent/CSS/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/style.css" rel="stylesheet" />
+    <!-- Time Picker CSS -->
+    <link rel='stylesheet' href='~/UIContent/CSS/font-awesome.min.css'>
+    <link rel='stylesheet' href='~/UIContent/CSS/bootstrap-datetimepicker.min.css'>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,8 +45,26 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/UIContent/JS/jquery-3.6.0.min.js"></script>
+    <script src="~/UIContent/JS/jquery-ui-1.13.2.min.js"></script>
+    <script src="~/UIContent/JS/bootstrap.bundle.min.js"></script>
+    <script src="~/UIContent/JS/feather.min.js"></script>
+    <script src="~/UIContent/JS/multiselect.js"></script>
+    <script src="~/UIContent/JS/popper.min.js"></script>
+
+    <script src="~/UIContent/JS/jquery.dataTables.min.js"></script>
+    <script src="~/UIContent/JS/dataTables.bootstrap5.min.js"></script>
+    <script src="~/UIContent/JS/dataTables.js"></script>
+    <script src="~/UIContent/JS/dataTables.fixedColumns.min.js"></script>
+
+    <script src="~/UIContent/JS/jquery.validate.min.js"></script>
+    <script src="~/UIContent/JS/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/UIContent/JS/CustomLayout.js"></script>
+    <script src="~/UIContent/JS/sweetalert2.all.min.js"></script>
+    <!-- Time Picker -->
+    <script src="~/UIContent/JS/moment.min.js"></script>
+    <script src="~/UIContent/JS/bootstrap-datetimepicker.min.js"></script>
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

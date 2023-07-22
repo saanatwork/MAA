@@ -17,6 +17,7 @@ namespace MAA
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IMasterRepository, MasterRepository>();
+            container.RegisterType<IUserRepository, UserRepository>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

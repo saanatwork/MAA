@@ -95,7 +95,7 @@ namespace DataAccessLayer2.Entities
             List<ExDropDownOptions> result = new List<ExDropDownOptions>();
             try
             {
-                dt = _MasterDataSync.GetDistricts(ref pMsg);
+                dt = _MasterDataSync.GetDesignations(ref pMsg);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)

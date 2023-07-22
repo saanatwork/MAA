@@ -13,7 +13,7 @@ namespace BusinessLogicLayer.IRepository
         List<BankMaster> GetBankName(ref string pMsg);
         string GetDocNo(string DocPattern, ref string pMsg);
         List<DropDownOptions> GetDistricts(ref string pMsg);
-        List<DropDownOptions> GetBlockOfaDistrict(int DistrictID, ref string pMsg);
+        List<DropDownOptions> GetBlockOfaDistrict(int DistrictID,bool IsRural, ref string pMsg);
         List<ExDropDownOptions> GetDesignations(ref string pMsg);
     }
 }

@@ -20,6 +20,7 @@ namespace BusinessObjectLayer.MyUser
         public string RawPassword { get; set; }
         public string SecretQuestion { get; set; }
         public string Answer { get; set; }
+        public bool IsActive { get; set; }
     }
 
 }

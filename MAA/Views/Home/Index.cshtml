@@ -1,48 +1,77 @@
-﻿@using MAA.Models.Master;
-@model xyz
+﻿@model MAA.Models.User.LogInUserVM
 @{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
+<html lang="en">
 
-<div class="col-md-3">
-    <div style="margin:200px"> Pool 1</div>
-    <select id="cCustomer"
-            onchange="BankClicked()"
-            class="form-select content border-red myctrlw100 is-invalid"
-            aria-label="Default select example">
-        <option selected value="">Select Bank</option>
-        @if (Model.Banks != null && Model.Banks.Count > 0)
-        {
-            foreach (var item in Model.Banks)
-            {
-                <option value="@item.BankID">@item.BankName</option>
-            }
-        }
-    </select>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="~/UIContent/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="~/UIContent/CSS/style.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/UIContent/CSS/sweetalert2.min.css" rel="stylesheet" />
+    <title>MSSY</title>
+</head>
+<body>
+    <div class="container-fluid p-0 login-bg-img">
+        <div class="content-wrapper justify-content-center align-items-center position-relative bg-transparent overflow-auto">
+            <div class="login-inner">
+                <div class="row w-100">
+                    <div class="col-md-3 mx-auto">
+                        <div class="login-outer">
+                            <div style="margin:10px">
+                                <img src="#" alt="" class="img-fluid">
+                            </div>
+                            <div id="MainDiv" style="margin-top:0px">
+                                <label>User ID : </label>
+                                <div class="input-container">
+                                    <input id="UserNameCtrl" type="text" data-name="UserName"
+                                           class="form-control is-invalid"
+                                           onkeyup="UserNameChanged()"
+                                           value="" placeholder="Enter User ID">
+                                </div>
+                                <label>Password : </label>
+                                <div class="input-container">
+                                    <input id="PasswordCtrl" type="password" 
+                                           data-name="RawPassword"
+                                           class="form-control is-invalid"
+                                           onkeyup="PasswordChanged()"
+                                           value="" placeholder="Enter Password">
+                                </div>
+                                <div class="mt-3">
+                                    <button id="btnSubmit" type="button" disabled
+                                            onclick="LogInBtnClicked()"
+                                            class="btn btn-success w-100 nodrop">
+                                        Log In
+                                    </button>
+                                </div>
+                                <br />
+                                <div class="">
+                                    @Html.ActionLink("Register New User", "SignUp", "Home", new { }, htmlAttributes: new { @class = "auth-link" })
+                                    @*<a href="@Html.ActionLink("")" class="auth-link ">Register New User</a>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-100 mt-3">
+                    <div class="col-md-8 mx-auto">
+                        <div class="footer-bottom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
-@section scripts{
-    <script src="~/UIContent/JS/CustomePage/CommonReusableV2.js"></script>
-    <script src="~/UXContent/IndexJs.js"></script>
+    <script src="~/UIContent/JS/jquery-3.6.0.min.js"></script>
+    <script src="~/UIContent/JS/sweetalert2.all.min.js"></script>
+    <script src="~/UIContent/JS/MyCustomized.js"></script>
+    <script src="~/UIContent/JS/CustomePage/User/LogInJs.js"></script>    
+</body>
 
-}
+</html>

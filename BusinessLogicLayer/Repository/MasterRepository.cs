@@ -21,9 +21,9 @@ namespace BusinessLogicLayer.Repository
         {
             return _MasterEntity.GetBankName(ref pMsg);
         }
-        public List<DropDownOptions> GetBlockOfaDistrict(int DistrictID, ref string pMsg)
+        public List<DropDownOptions> GetBlockOfaDistrict(int DistrictID,bool IsRural, ref string pMsg)
         {
-            List<DropDownOptions> result = _MasterEntity.GetBlockOfaDistrict(DistrictID, ref pMsg);
+            List<DropDownOptions> result = _MasterEntity.GetBlockOfaDistrict(DistrictID, IsRural, ref pMsg);
             return result.OrderBy(o=>o.DisplayText).ToList();
         }
         public List<ExDropDownOptions> GetDesignations(ref string pMsg)

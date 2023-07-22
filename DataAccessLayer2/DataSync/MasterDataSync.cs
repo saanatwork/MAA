@@ -49,11 +49,11 @@ namespace DataAccessLayer2.DataSync
             }
             catch (Exception ex) { pMsg = ex.Message; return null; }
         }
-        public DataTable GetBlockOfaDistrict(int DistrictID, ref string pMsg)
+        public DataTable GetBlockOfaDistrict(int DistrictID,bool IsRural, ref string pMsg)
         {
             try
             {
-                using (SQLHelper sql = new SQLHelper("select * from [MTR].[GetBlocks]("+ DistrictID + ")", CommandType.Text))
+                using (SQLHelper sql = new SQLHelper("select * from [MTR].[GetBlocks]("+ DistrictID + ","+ (IsRural?1:0)+ ")", CommandType.Text))
                 {
                     return sql.GetDataTable(ref pMsg);
                 }
@@ -81,6 +81,28 @@ namespace DataAccessLayer2.DataSync
                 }
             }
             catch (Exception ex) { pMsg = ex.Message; return null; }
+        }
+        public DataTable GetUserData(string UserName,ref string pMsg)
+        {
+            try
+            {
+                using (SQLHelper sql = new SQLHelper("select * from [MTR].[GetUserData]('"+ UserName + "')", CommandType.Text))
+                {
+                    return sql.GetDataTable(ref pMsg);
+                }
+            }
+            catch (Exception ex) { pMsg = ex.Message; return null; }
+        }
+        public bool ValidateUser(string UserName, ref string pMsg)
+        {
+            try
+            {
+                using (SQLHelper sql = new SQLHelper("SELECT [MTR].[ValidateUser]('" + UserName + "')", CommandType.Text))
+                {
+                    return bool.Parse(sql.ExecuteScaler(ref pMsg).ToString());
+                }
+            }
+            catch (Exception ex) { pMsg = ex.Message; return false; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessObjectLayer.CommonClass;
 using BusinessObjectLayer.Master;
+using BusinessObjectLayer.MyUser;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -62,5 +63,44 @@ namespace DataAccessLayer2.ObjectMapper
             catch (Exception ex) { pMsg = ex.Message; }
             return result;
         }
+        public MSSYUser Map_MSSYUser(DataRow dr, ref string pMsg)
+        {
+            MSSYUser result = new MSSYUser();
+            try
+            {
+                if (dr != null)
+                {
+                    if (!DBNull.Value.Equals(dr["DistrictCode"]))
+                        result.DistrictCode = int.Parse(dr["DistrictCode"].ToString());
+                    if (!DBNull.Value.Equals(dr["Bloc_ULB_Code"]))
+                        result.BlockCode = int.Parse(dr["Bloc_ULB_Code"].ToString());
+                    if (!DBNull.Value.Equals(dr["Designation"]))
+                        result.Designation = dr["Designation"].ToString();
+                    if (!DBNull.Value.Equals(dr["FirstName"]))
+                        result.FirstName = dr["FirstName"].ToString();
+                    if (!DBNull.Value.Equals(dr["LastName"]))
+                        result.LastName = dr["LastName"].ToString();
+                    if (!DBNull.Value.Equals(dr["ContactNumber"]))
+                        result.ContactNumber = dr["ContactNumber"].ToString();
+                    if (!DBNull.Value.Equals(dr["EmailID"]))
+                        result.EmailID = dr["EmailID"].ToString();
+                    if (!DBNull.Value.Equals(dr["UserName"]))
+                        result.UserName = dr["UserName"].ToString();
+                    if (!DBNull.Value.Equals(dr["IsActive"]))
+                        result.IsActive =bool.Parse(dr["IsActive"].ToString());
+                    if (!DBNull.Value.Equals(dr["HashedPassword"]))
+                        result.Password = dr["HashedPassword"].ToString();
+                    if (!DBNull.Value.Equals(dr["SecretQuestion"]))
+                        result.SecretQuestion = dr["SecretQuestion"].ToString();
+                    if (!DBNull.Value.Equals(dr["Answer"]))
+                        result.Answer = dr["Answer"].ToString();
+                }
+            }
+            catch (Exception ex) { pMsg = ex.Message; }
+            return result;
+        }
+
+
+
     }
 }

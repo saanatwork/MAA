@@ -1,5 +1,7 @@
 ﻿using BusinessLogicLayer.IRepository;
+using BusinessObjectLayer;
 using MAA.Models.Master;
+using MAA.Models.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +20,21 @@ namespace MAA.Controllers
         }
         public ActionResult Index()
         {
-            xyz model = new xyz();
-            model.Banks= _iMaster.GetBankName(ref pMsg);
+            LogInUserVM model = new LogInUserVM();
             return View(model);
         }
-
-        public ActionResult About()
+        public ActionResult SignUp() 
         {
-            ViewBag.Message = "Your application description page.";
-
+            RegisterUserVM model = new RegisterUserVM();
+            model.DistrictList = _iMaster.GetDistricts(ref pMsg);
+            model.DesignationList = _iMaster.GetDesignations(ref pMsg);
+            model.SQList = MyHelper.GetSecretQuestions();
+            return View(model);
+        }
+        public ActionResult DashBoard() 
+        {
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

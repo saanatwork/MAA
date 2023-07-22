@@ -73,12 +73,12 @@ namespace DataAccessLayer2.Entities
             catch (Exception ex) { pMsg = ex.Message; }
             return result;
         }
-        public List<DropDownOptions> GetBlockOfaDistrict(int DistrictID,ref string pMsg)
+        public List<DropDownOptions> GetBlockOfaDistrict(int DistrictID,bool IsRural,ref string pMsg)
         {
             List<DropDownOptions> result = new List<DropDownOptions>();
             try
             {
-                dt = _MasterDataSync.GetBlockOfaDistrict(DistrictID,ref pMsg);
+                dt = _MasterDataSync.GetBlockOfaDistrict(DistrictID, IsRural, ref pMsg);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
@@ -113,7 +113,23 @@ namespace DataAccessLayer2.Entities
             _DBResponseMapper.Map_DBResponse(_MasterDataSync.SetUser(data, ref pMsg), ref pMsg, ref result);
             return result;
         }
-
-
+        public bool ValidateUser(string UserName, ref string pMsg) 
+        {
+            return _MasterDataSync.ValidateUser(UserName, ref pMsg);
+        }
+        public MSSYUser GetUserData(string UserName, ref string pMsg)
+        {
+            MSSYUser result = new MSSYUser();
+            try
+            {
+                dt = _MasterDataSync.GetUserData(UserName,ref pMsg);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    result=_MasterObjectMapper.Map_MSSYUser(dt.Rows[0], ref pMsg);
+                }
+            }
+            catch (Exception ex) { pMsg = ex.Message; }
+            return result;
+        }
     }
 }

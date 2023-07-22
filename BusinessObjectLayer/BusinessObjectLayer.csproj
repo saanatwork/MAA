@@ -78,6 +78,7 @@
     <Compile Include="CommonClass\CustomAjaxResponse.cs" />
     <Compile Include="CommonClass\DropDownOptions.cs" />
     <Compile Include="Master\BankMaster.cs" />
+    <Compile Include="MyHelper.cs" />
     <Compile Include="MyUser\MSSYUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

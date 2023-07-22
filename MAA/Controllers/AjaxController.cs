@@ -29,9 +29,9 @@ namespace MAA.Controllers
             var result = _iMaster.GetDistricts(ref pMsg);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetBlockOfaDistrict(int DistrictID)
+        public JsonResult GetBlockOfaDistrict(int DistrictID,bool IsRural)
         {
-            var result = _iMaster.GetBlockOfaDistrict(DistrictID,ref pMsg);
+            var result = _iMaster.GetBlockOfaDistrict(DistrictID, IsRural, ref pMsg);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetDesignations()
@@ -48,7 +48,7 @@ namespace MAA.Controllers
                 if (_iUser.SetUser(data, ref pMsg))
                 {
                     result.bResponseBool = true;
-                    result.sResponseString = "User Created Successfully";
+                    result.sResponseString = pMsg;
                 }
                 else 
                 {
@@ -58,8 +58,37 @@ namespace MAA.Controllers
             }
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-
+        [HttpPost]
+        public JsonResult LogIn(MSSYUser data)
+        {
+            CustomAjaxResponse result = new CustomAjaxResponse();
+            if (_iUser.LoginUser(data.UserName, data.RawPassword, ref pMsg))
+            {
+                result.bResponseBool = true;
+                result.sResponseString = pMsg;
+            }
+            else
+            {
+                result.bResponseBool = false;
+                result.sResponseString = pMsg;
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ValidateUser(string UserID)
+        {
+            CustomAjaxResponse result = new CustomAjaxResponse();
+            if (_iUser.ValidateUser(UserID, ref pMsg))
+            {
+                result.bResponseBool = true;
+                result.sResponseString = pMsg;
+            }
+            else
+            {
+                result.bResponseBool = false;
+                result.sResponseString = pMsg;
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

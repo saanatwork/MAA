@@ -35,6 +35,10 @@ namespace MAA.Controllers
         {
             return View();
         }
+        public ActionResult LoanApplicationForm()
+        {
+            return View();
+        }
 
     }
 }

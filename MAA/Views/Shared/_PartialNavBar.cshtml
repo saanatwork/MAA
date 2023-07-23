@@ -1,0 +1,33 @@
+﻿<div class="bgMenu">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li class="d-flex">
+                        <button id="navOpen" class="navmenu" onclick="openNav(this)">
+                            <img src="/img/iconNew2.svg" alt="">
+                        </button>
+                        <button id="navClose" class="navclosemenu inVisible" onclick="closeNav()">
+                            <img src="/img/iconNew1.svg" alt="">
+                        </button>
+                        <div class="search-bar">
+                            <input type="text" class="form-control" placeholder="Search here">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div style="padding:10px">
+                            You Are Now At :
+                            <strong>@ViewBag.Title</strong>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "User")" class="LogoutBtn">Home</a>
+                        <a href="@Url.Action("LogOut", "User")" class="LogoutBtn">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

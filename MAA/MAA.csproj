@@ -1555,6 +1555,8 @@
     <Content Include="Views\Shared\_BlankLayoutPage.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Home\DashBoard.cshtml" />
+    <Content Include="Views\Home\LoanApplicationForm.cshtml" />
+    <Content Include="Views\Shared\_PartialNavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

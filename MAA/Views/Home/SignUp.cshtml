@@ -22,7 +22,7 @@
             <div class="content-wrapper justify-content-center align-items-center position-relative bg-transparent overflow-auto">
                 <div class="login-inner">
                     <div class="row w-100">
-                        <div class="col-md-3 mx-auto">
+                        <div style="width:600px; "  class="col-md-3 mx-auto">
                             <div class="login-outer">
                                 <div style="margin:10px">
                                     <img src="#" alt="" class="img-fluid">
@@ -66,7 +66,7 @@
                                                 class="form-select is-invalid"
                                                 onchange="DesignationChanged()"
                                                 aria-label="Default select example">
-                                            <option selected value="">Select District</option>
+                                            <option selected value="">Select Designation</option>
                                             @if (Model.DesignationList != null & Model.DesignationList.Count > 0)
                                             {
                                                 foreach (var item in Model.DesignationList)
